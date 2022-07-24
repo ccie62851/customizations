@@ -33,7 +33,6 @@ data = re.sub(r'ZSH_THEME.*', 'ZSH_THEME="gnzh"', data)
 data = re.sub(r'plugins=\(git\)', plugins, data)
 with open(zshrc_file, 'w') as file:
     file.write(data)
-os.system(f'zsh && source {zshrc_file}')
 
 # vim setup
 theme_name = 'onedark.vim'
@@ -52,9 +51,10 @@ if not os.path.isdir(vim_autoload_path):
     os.system(f'mkdir {vim_autoload_path}')
 
 
-print("\nDownloading VIM Theme files\n")
-os.system(f'curl -o {vim_color_path}{theme_name} {color_url}')
-os.system(f'curl -o {vim_autoload_path}{theme_name} {autoload_url}')
+if not os.path.isfile(f'{vim_color_path}{theme_name}'):
+    print("\nDownloading VIM Theme files\n")
+    os.system(f'curl -o {vim_color_path}{theme_name} {color_url}')
+    os.system(f'curl -o {vim_autoload_path}{theme_name} {autoload_url}')
 
 if not os.path.isfile(vimrc_file):
     print(f"Creating {vimrc_file}")
@@ -63,3 +63,5 @@ if not os.path.isfile(vimrc_file):
 with open(vimrc_file, "w") as file_object:
     print(f"Updating theme in {vimrc_file}")
     file_object.write("syntax on\ncolorscheme onedark")
+
+os.system(f'zsh && source {zshrc_file}')
