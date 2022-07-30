@@ -28,7 +28,7 @@ if not os.path.isdir(zsh_autosuggestions):
     print("Installing zsh-autosuggestions\n")
     auto_suggestion_cmd = 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
     os.system(auto_suggestion_cmd)
-if not os.path.isdir(zsh_plugin_path):
+if not os.path.isdir(zsh_syntax_highlighting):
      print("Installing zsh-syntax-highlighting\n")
      syntax_highlighting_cmd = 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
      os.system(syntax_highlighting_cmd)
