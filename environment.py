@@ -11,7 +11,7 @@ vim_path = f'{home_dir}/.vim/'
 vim_color_path = f'{vim_path}colors/'
 vim_autoload_path = f'{vim_path}autoload/'
 zsh_autosuggestions = f'{oh_my_zsh_path}custom/plugins/zsh-autosuggestions'
-zsh_syntax_highlighting = f'{oh_my_zsh_path}custom/plugins/zsh-autosuggestions/zsh-syntax-highlighting'
+zsh_syntax_highlighting = f'{oh_my_zsh_path}custom/plugins/zsh-syntax-highlighting'
 plugins = '''plugins=( 
     git
     zsh-autosuggestions
