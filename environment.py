@@ -10,10 +10,12 @@ vimrc_file = f'{home_dir}/.vimrc'
 vim_path = f'{home_dir}/.vim/'
 vim_color_path = f'{vim_path}colors/'
 vim_autoload_path = f'{vim_path}autoload/'
-zsh_plugin_path = f'{oh_my_zsh_path}custom/plugins/zsh-autosuggestions'
+zsh_autosuggestions = f'{oh_my_zsh_path}custom/plugins/zsh-autosuggestions'
+zsh_syntax_highlighting = f'{oh_my_zsh_path}custom/plugins/zsh-autosuggestions/zsh-syntax-highlighting'
 plugins = '''plugins=( 
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 '''
 #zsh_setup
@@ -22,11 +24,15 @@ if not os.path.isdir(oh_my_zsh_path):
     oh_my_zsh_cmd = 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
     os.system(oh_my_zsh_cmd)
     os.system('chsh -s $(which zsh)')
-if not os.path.isdir(zsh_plugin_path):
+if not os.path.isdir(zsh_autosuggestions):
     print("Installing zsh-autosuggestions\n")
     auto_suggestion_cmd = 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
     os.system(auto_suggestion_cmd)
-
+if not os.path.isdir(zsh_plugin_path):
+     print("Installing zsh-syntax-highlighting\n")
+     syntax_highlighting_cmd = 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
+     os.system(syntax_highlighting_cmd)
+   
 print("Updating 'gnzh' as default Oh-MY-ZSH theme\n")
 with open(zshrc_file, 'r') as file:
     data = file.read()
