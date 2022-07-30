@@ -21,6 +21,7 @@ if not os.path.isdir(oh_my_zsh_path):
     print("Oh-MY-ZSH is not installed, Installing\n")
     oh_my_zsh_cmd = 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
     os.system(oh_my_zsh_cmd)
+    os.system('chsh -s $(which zsh)')
 if not os.path.isdir(zsh_plugin_path):
     print("Installing zsh-autosuggestions\n")
     auto_suggestion_cmd = 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
