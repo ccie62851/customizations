@@ -37,7 +37,7 @@ print("Updating 'gnzh' as default Oh-MY-ZSH theme\n")
 with open(zshrc_file, 'r') as file:
     data = file.read()
 data = re.sub(r'ZSH_THEME.*', 'ZSH_THEME="gnzh"', data)
-data = re.sub(r'plugins=\(git\)', plugins, data)
+data = re.sub(r'plugins=\(git.*', plugins, data)
 with open(zshrc_file, 'w') as file:
     file.write(data)
 
